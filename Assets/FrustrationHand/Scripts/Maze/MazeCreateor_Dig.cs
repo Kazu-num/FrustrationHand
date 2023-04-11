@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Maze
 {
@@ -63,7 +62,7 @@ namespace Maze
 
         private void Dig(int x, int y)
         {
-            var rnd = new Random();
+            Random rnd = new Random();
             while (true)
             {
                 var directions = new List<Direction>();

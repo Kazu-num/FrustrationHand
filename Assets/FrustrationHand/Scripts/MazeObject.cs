@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Maze;
 
@@ -22,7 +20,7 @@ public class MazeObject : MonoBehaviour
     {
         get
         {
-            return new Vector3(1, 1, 0);
+            return new Vector3(1, 0, 1);
         }
     }
 
@@ -38,7 +36,7 @@ public class MazeObject : MonoBehaviour
     {
         get
         {
-            return new Vector3(Width - 1, Height - 2, transform.localPosition.z);
+            return new Vector3(Width - 1, transform.localPosition.y, Height - 2);
         }
     }
 
@@ -99,7 +97,7 @@ public class MazeObject : MonoBehaviour
                     // ï«à íuÇ…CubeÇàÍéûìIÇ…ê∂ê¨
                     var obj = GameObject.CreatePrimitive(PrimitiveType.Cube);
                     obj.transform.parent = transform;
-                    obj.transform.localPosition = new Vector3(x, y, 0);
+                    obj.transform.localPosition = new Vector3(x, 0, y);
                     obj.transform.localRotation = Quaternion.identity;
                     obj.transform.localScale = Vector3.one;
                 }
@@ -127,16 +125,6 @@ public class MazeObject : MonoBehaviour
                 Destroy(meshFilter.gameObject);
             }
         }
-    }
-
-    bool IsStartOrEndCell(int x, int y)
-    {
-        return IsStrartCell(x, y) || IsEndCell(x, y);
-    }
-
-    bool IsStrartCell(int x, int y)
-    {
-        return x == 0 && y == 1;
     }
 
     bool IsEndCell(int x, int y)
